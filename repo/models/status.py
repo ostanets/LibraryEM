@@ -12,5 +12,5 @@ class Status(Base):
 
 
 class Statuses(Enum):
-    AVAILABLE = "в наличии"
-    BORROWED = "выдана"
+    AVAILABLE = 1
+    BORROWED = 2

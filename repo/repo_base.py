@@ -1,17 +1,23 @@
 from typing import Optional
 
 from repo.models.book import Book
-from repo.models.status import Statuses
+from repo.models.status import Statuses, Status
 
 
 class RepoBase:
     def create_base_statuses(self):
         raise NotImplementedError()
 
+    def get_statuses(self) -> list[Status]:
+        raise NotImplementedError()
+
+    def get_status_id(self, name: str) -> Optional[int]:
+        raise NotImplementedError()
+
     def add_a_book(self, book: Book) -> int:
         raise NotImplementedError()
 
-    def find_books(self, query: Optional[str]) -> list[Book]:
+    def find_books(self, query: Optional[str] = None) -> list[Book]:
         raise NotImplementedError()
 
     def edit_book_status(self, book_id: int, status: Statuses) -> bool:
